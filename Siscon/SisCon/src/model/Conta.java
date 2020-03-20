@@ -11,12 +11,10 @@ public class Conta {
     private double saldo;
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome.length() >= 5)this.nome = nome;
+        else throw new IllegalArgumentException("O nome de ter mais de 4 letras.");
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
 
     public String getNome() {
         return nome;
@@ -26,6 +24,21 @@ public class Conta {
         return saldo;
     }
     
-    public void sacar(){
+    public void sacar(double valor){
+        if (valor <= 0) throw new IllegalArgumentException("Valor de saque deve ser maior que zero.");
+        else if(valor > this.saldo) throw new RuntimeException("Não há saldo suficiente para o saque.");
+        else this.saldo -= valor;
+    }
+    
+    public void depositar(double valor){
+        if (valor > 0) this.saldo += valor;
+        else throw new IllegalArgumentException("O valor de depósito deve ser maior que zero.");
+    }
+    
+    public Conta(String nome){
+        setNome(nome);
+    }
+    
+    public Conta(double saldo){
     }
 }

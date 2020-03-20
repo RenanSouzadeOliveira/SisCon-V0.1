@@ -11,7 +11,8 @@ public class ContaCorrente extends Banco{
     private double limite;
 
     public void setLimite(double limite) {
-        this.limite = limite;
+       if(limite >= 0) this.limite = limite;
+       else throw new IllegalArgumentException("O limite deve ser maior ou igual a zero.");
     }
 
     public double getLimite() {
@@ -19,5 +20,14 @@ public class ContaCorrente extends Banco{
     }
     
     public void pagar(){
+    }
+    
+    public ContaCorrente(String nome, String agencia, int numero, double limite){
+        super(nome,agencia,numero);
+        setLimite(limite);
+    }
+    
+    public ContaCorrente(String nome, String agencia, int numero){
+        this(nome, agencia, numero,0);
     }
 }

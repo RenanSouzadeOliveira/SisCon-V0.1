@@ -10,4 +10,8 @@ package model;
 public class Carteira extends Conta{
     private void pagar(){
     }
+    
+    public Carteira(String nome){
+        super(nome);
+    }
 }

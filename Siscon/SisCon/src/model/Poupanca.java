@@ -15,9 +15,19 @@ public class Poupanca extends Banco{
     }
 
     public void setAniversario(int aniversario) {
-        this.aniversario = aniversario;
+        if(aniversario >= 1 && aniversario <= 28)this.aniversario = aniversario;
+        else throw new IllegalArgumentException("O aniversário deve estar entre o dia 1 e 28.");
     }
     
     public void calcularRendimento(){
+    }
+    
+    public Poupanca (String nome, String agencia, int numero){
+        this(nome, agencia, numero,0);
+    }
+    
+    public Poupanca (String nome, String agencia, int numero, int aniversario){
+        super(nome, agencia, numero);
+        setAniversario(aniversario);
     }
 }

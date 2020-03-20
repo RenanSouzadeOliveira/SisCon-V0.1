@@ -6,25 +6,32 @@
 
 package controller;
 
+
 import model.Carteira;
 import model.ContaCorrente;
+import model.Poupanca;
 
 
 public class Principal {
     public static void main(String[] args) {
-        Carteira cart = new Carteira();
-        cart.setNome("Carteira Azul");
-        cart.setSaldo(500);
+        ContaCorrente cc = new ContaCorrente("Banco Itaú", "000-1", 1234, 20000);
+        Carteira carteira = new Carteira("Carteira Azul");
+        Poupanca poupanca = new Poupanca("ModalMais S/A", "000-2", 1234567, 26);
         
-        System.out.println(cart.getNome() + ": R$ " + cart.getSaldo());
-        
-        ContaCorrente cc = new ContaCorrente();
-        cc.setNome("Banco Teste S/A");
-        cc.setSaldo(200);
-        cc.setLimite(3000);
         System.out.println(cc.getNome());
-        System.out.println("Saldo: R$ " + cc.getSaldo());
-        System.out.println("Limite de Crédito: R$ " + cc.getLimite());
-
+        System.out.println(cc.getAgencia());
+        System.out.println(cc.getNumero());
+        System.out.println(cc.getLimite() + "\n\n");
+        
+        System.out.println(carteira.getNome() + "\n\n");
+        
+        System.out.println(poupanca.getNome());
+        System.out.println(poupanca.getAgencia());
+        System.out.println(poupanca.getNumero());
+        System.out.println(poupanca.getAniversario());
+        
+        
+        
+       
     }
 }
