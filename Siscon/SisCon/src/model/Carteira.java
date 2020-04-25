@@ -8,9 +8,7 @@ package model;
 
 
 public class Carteira extends Conta{
-    private void pagar(){
-    }
-    
+    //Construtores
     public Carteira(String nome){
         super(nome);
     }
@@ -18,14 +16,23 @@ public class Carteira extends Conta{
     public Carteira(){
         this("Carteira");
     }
+    // Métodos implementados          
+    public void sacar(double valor){
+        if (valor <= 0){
+            throw new IllegalArgumentException("Valor de saque deve ser maior que zero.");
+        } else if(valor > this.saldo){
+            throw new RuntimeException("Não há saldo suficiente para o saque.");
+        } else{
+            this.saldo -= valor;
+        }
+    };
     
-    public String toString(){
+     private void pagar(){
+    }
+     
+     // ToString
+     @Override
+     public String toString(){
         return (this.getNome() + ": R$ " + getSaldo() + "\n");
     }
-    
-    public void sacar(double valor){
-        if (valor <= 0) throw new IllegalArgumentException("Valor de saque deve ser maior que zero.");
-        else if(valor > this.saldo) throw new RuntimeException("Não há saldo suficiente para o saque.");
-        else this.saldo -= valor;
-    };
 }
