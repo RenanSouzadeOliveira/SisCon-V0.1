@@ -1,4 +1,4 @@
-#SisCon
+# SisCon
 
 - Objetivo:
-	>Desenvolver um sistem de controle de contas pessoais em Java.
+	>Desenvolver um sistema de controle de contas pessoais em Java.
